@@ -9,13 +9,18 @@ public class ClickToMove : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
 
+    private Player player;
+
     private bool walking = false;
+
+    private double walkingSpeed = 1.0;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();    
-        navMeshAgent = GetComponent<NavMeshAgent>();    
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        walkingSpeed = player.getWalkingSpeed();
     }
 
     // Update is called once per frame
@@ -36,12 +41,19 @@ public class ClickToMove : MonoBehaviour
         if(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
             walking = false;
+            navMeshAgent.updateRotation = false;
         }
         else
         {
             walking = true;
+            navMeshAgent.updateRotation = true;
         }
 
-        animator.SetBool("Walking", walking);
+    }
+    public bool getAnimState()
+    {
+        return walking;
     }
 }
+
+
