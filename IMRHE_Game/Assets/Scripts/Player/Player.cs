@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private double walkingSpeed = 1.0;
+
     [SerializeField]
     private int CashAmount = 0;
+    [SerializeField]
+    private bool tutorialEnabled = false;
+
+    //Dictionary to store the stall information
+
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public double getWalkingSpeed()
-    {
-        return walkingSpeed;
-    }
+
+
     public double getCash()
     {
         return CashAmount;

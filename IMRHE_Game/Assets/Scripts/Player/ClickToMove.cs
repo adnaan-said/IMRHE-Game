@@ -13,14 +13,12 @@ public class ClickToMove : MonoBehaviour
 
     private bool walking = false;
 
-    private double walkingSpeed = 1.0;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();    
         navMeshAgent = GetComponent<NavMeshAgent>();
-        walkingSpeed = player.getWalkingSpeed();
     }
 
     // Update is called once per frame

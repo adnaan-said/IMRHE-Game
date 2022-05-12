@@ -1,7 +1,7 @@
 # IMRHE-Game
 Game made for a research project
-#Todo
-##Faisal
+# Todo
+## Faisal
 - Add variables for the Player
 - Create an Inventory Script
 - Create a JSON File to save and load player data
