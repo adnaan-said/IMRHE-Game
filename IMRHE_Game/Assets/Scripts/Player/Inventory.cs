@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     private bool InventoryOpen;
     public GameObject inventory;
-    Pause pause;
+    private Pause pause;
     void Start()
     {
         pause = GetComponent<Pause>();
@@ -21,5 +21,10 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.I))
                 InventoryOpen = !InventoryOpen;
         inventory.SetActive(InventoryOpen);
+    }
+
+    public void ActivateInventory()
+    {
+        InventoryOpen = !InventoryOpen;
     }
 }

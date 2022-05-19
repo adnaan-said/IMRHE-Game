@@ -5,7 +5,8 @@ using UnityEngine;
 public class StampCard : MonoBehaviour
 {
     private IDictionary<string, int> StallScore = new Dictionary<string, int>();
-    public bool stampCardOpen;
+    private bool stampCardOpen;
+    public GameObject stampCard;
     Pause pause;
     // Start is called before the first frame update
     void Start()
@@ -20,9 +21,7 @@ public class StampCard : MonoBehaviour
 
     private void Update()
     {
-        if(pause.PauseMenu.activeSelf)
-            if (Input.GetKeyDown(KeyCode.S))
-                stampCardOpen = !stampCardOpen;
+        stampCard.SetActive(stampCardOpen);
     }
 
     bool logNewScore(string Game,int score)
@@ -43,5 +42,10 @@ public class StampCard : MonoBehaviour
         }
         else
             return -1;                  //Wrong Key
+    }
+
+    public void toggleStampCard()
+    {
+        this.stampCardOpen = !this.stampCardOpen;
     }
 }

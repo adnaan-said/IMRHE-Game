@@ -7,11 +7,12 @@ public class Pause : MonoBehaviour
 
     private bool PauseEnabled;
     public GameObject PauseMenu;
+    private Locomotion locomotion;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        locomotion = GetComponent<Locomotion>();
         PauseEnabled = false;
     }
 
@@ -19,7 +20,15 @@ public class Pause : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
+        {
             PauseEnabled = !PauseEnabled;
+            StopMotion();
+        }
         PauseMenu.SetActive(PauseEnabled);
+    }
+
+    public void StopMotion()
+    {
+        locomotion.pauseMoving();
     }
 }
