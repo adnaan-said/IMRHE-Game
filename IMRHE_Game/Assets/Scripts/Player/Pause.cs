@@ -27,6 +27,16 @@ public class Pause : MonoBehaviour
         PauseMenu.SetActive(PauseEnabled);
     }
 
+    public bool checkPause()
+    {
+        return PauseEnabled;
+    }
+
+    public bool notPaused()
+    {
+        return !PauseEnabled;
+    }
+
     public void StopMotion()
     {
         locomotion.pauseMoving();

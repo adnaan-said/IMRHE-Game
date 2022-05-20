@@ -5,7 +5,7 @@ using UnityEngine;
 public class StampCard : MonoBehaviour
 {
     private IDictionary<string, int> StallScore = new Dictionary<string, int>();
-    private bool stampCardOpen;
+    public bool stampCardOpen;
     public GameObject stampCard;
     Pause pause;
     // Start is called before the first frame update
@@ -47,5 +47,10 @@ public class StampCard : MonoBehaviour
     public void toggleStampCard()
     {
         this.stampCardOpen = !this.stampCardOpen;
+    }
+
+    public void toggleStampCard(bool toggle)
+    {
+        this.stampCardOpen = toggle;
     }
 }
