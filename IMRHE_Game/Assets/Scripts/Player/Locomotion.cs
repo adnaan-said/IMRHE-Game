@@ -45,15 +45,15 @@ public class Locomotion : MonoBehaviour
 
             bool shouldMove = click.getAnimState();
             animator.SetBool("Walking", shouldMove);
-            animator.SetFloat("velx", velocity.x);
-            animator.SetFloat("vely", velocity.y);
+            //animator.SetFloat("velx", velocity.x);
+            //animator.SetFloat("vely", velocity.y);
 
         }
         else
         {
             animator.SetBool("Walking", false);
-            animator.SetFloat("velx", 0);
-            animator.SetFloat("vely", 0);
+            //animator.SetFloat("velx", 0);
+            //animator.SetFloat("vely", 0);
         }
 
        

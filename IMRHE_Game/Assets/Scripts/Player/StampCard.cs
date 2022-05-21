@@ -5,12 +5,13 @@ using UnityEngine;
 public class StampCard : MonoBehaviour
 {
     private IDictionary<string, int> StallScore = new Dictionary<string, int>();
-    public bool stampCardOpen;
+    public bool stampCardOpen=true;
     public GameObject stampCard;
     Pause pause;
     // Start is called before the first frame update
     void Start()
     {
+        stampCard.SetActive(true);
         stampCardOpen = false;
         pause = GetComponent<Pause>();
 

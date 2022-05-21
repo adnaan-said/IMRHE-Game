@@ -13,8 +13,12 @@ public class StampCardFunction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(0);
+        Debug.Log(player.tag);
         if (player != null)
             stampCard = player.GetComponent<StampCard>();
+        Debug.Log(player.tag);
+
     }
 
     // Update is called once per frame
@@ -68,11 +72,14 @@ public class StampCardFunction : MonoBehaviour
 
     public void ToggleStampCard()
     {
+        Debug.Log(1);
         stampCard.toggleStampCard();
     }
 
     public void ToggleStampCard(bool toggle)
     {
+        Debug.Log(2);
+       
         stampCard.toggleStampCard(toggle);
     }
 }

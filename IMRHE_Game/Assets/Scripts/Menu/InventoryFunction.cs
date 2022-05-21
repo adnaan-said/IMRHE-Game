@@ -9,6 +9,7 @@ public class InventoryFunction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(player.tag);
         if (player != null)
             Inv = player.GetComponent<Inventory>();
     }
