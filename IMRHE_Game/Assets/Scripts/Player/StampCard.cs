@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 public class StampCard : MonoBehaviour
 {
@@ -31,29 +32,79 @@ public class StampCard : MonoBehaviour
 
         Debug.LogFormat("Loaded StampCard {0}", JsonUtility.ToJson(savedStampCard));
 
-        var stamp = savedStampCard.stamps.Find(q => q.stall == Stamp.Stall.Clowns);
-        if (stamp == null)
-            Debug.Log("here");
-
-        markStamp(Stamp.Stall.Clowns,Stamp.Tier.Basic, 90);
-        markStamp(Stamp.Stall.Axe, Stamp.Tier.Advanced, 92);
+        markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 90);
+        markStamp(Stamp.Stall.Axe, Stamp.Tier.Advanced, 60);
         markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 99);
         markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 70);
+        markStamp(Stamp.Stall.Fishing, Stamp.Tier.Hard, 30);
+
 
         Debug.LogFormat("Loaded StampCard {0}", JsonUtility.ToJson(savedStampCard));
+
 
     }
 
     private void Update()
     {
         stampCard.SetActive(stampCardOpen);
-
+        
     }
 
     void UpdateStampCardUI()
     {
-        savedStampCard = new SaveStampCard();
-        savedStampCard.Load();
+        //Debug.Log(10);
+
+        //Debug.Log(savedStampCard);
+
+        List<Stamp> stamps = savedStampCard.stamps;
+
+        Graphic m_Graphic;
+        Color m_MyColor;
+
+        savedStampCard.stamps.ForEach(q =>
+        {
+            //Debug.Log(100);
+            StampUIElements.ForEach(p =>
+        {
+            
+            string stallName = Enum.GetName(typeof(Stamp.Stall), q.stall);
+            if (p.Name == stallName)
+            {
+                m_Graphic = p.ColoredStamp.GetComponent<Graphic>();
+                p.stall.GetComponent<Text>().text = q.stall.ToString();
+                p.Score.GetComponent<Text>().text = q.Score.ToString();
+                int TierCount = q.tier.GetHashCode();
+                string TierName = "";
+                for (int i = 0; i <= TierCount; i++)
+                    TierName += "I";
+
+                p.Tier.GetComponent<Text>().text = TierName;
+
+                if (90 < q.Score && q.Score <= 100)
+                {
+                    m_MyColor = Color.yellow;
+                    p.Exclamation.GetComponent<Text>().text = "Excellent!";
+                    
+                }
+                else if (50 < q.Score)
+                {
+                    m_MyColor = Color.black;
+                    p.Exclamation.GetComponent<Text>().text = "Pass!";
+                }
+                else
+                {
+                    m_MyColor = Color.red;
+                    p.Exclamation.GetComponent<Text>().text = "Fail!";
+                }
+                p.Exclamation.GetComponent<Text>().color = m_MyColor;
+                m_Graphic.color = m_MyColor;
+                //Debug.Log(stallName + " " + TierName);
+                //Debug.Log(1000);
+            }
+        }
+            );
+        }
+        );
     }
 
     void markStamp(Stamp.Stall stall, Stamp.Tier tier, int Score)
@@ -144,11 +195,17 @@ public class StampCard : MonoBehaviour
     public void toggleStampCard()
     {
         this.stampCardOpen = !this.stampCardOpen;
+        if (stampCardOpen)
+            UpdateStampCardUI();
+
     }
 
     public void toggleStampCard(bool toggle)
     {
         this.stampCardOpen = toggle;
+        if (stampCardOpen)
+            UpdateStampCardUI();
+
     }
 
     [System.Serializable]
@@ -177,6 +234,7 @@ public class StampCard : MonoBehaviour
     private class SaveStampCard
     {
         private string savePath { get { return Path.Combine(Application.persistentDataPath, "Json/StampCard.json"); } }
+
         // items currently in the inventory
         public List<Stamp> stamps;
         public SaveStampCard()
@@ -202,7 +260,8 @@ public class StampCard : MonoBehaviour
         public GameObject stall;
         public GameObject Score;
         public GameObject Tier;
-        //public Sprite ColoredStamp;
+        public GameObject Exclamation;
+        public Image ColoredStamp;
         //Not Working
 
     }

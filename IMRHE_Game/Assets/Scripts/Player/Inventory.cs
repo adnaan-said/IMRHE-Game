@@ -28,4 +28,17 @@ public class Inventory : MonoBehaviour
     {
         InventoryOpen = !InventoryOpen;
     }
+
+    [System.Serializable]
+    public class Item
+    {
+        public enum Type { Token, SpeedPotion, AttemptPotion, CashBoost, Tier2Pass, Tier3Pass };
+
+        public int amount;
+
+        public Type type;
+
+        public string Description;
+
+    }
 }
