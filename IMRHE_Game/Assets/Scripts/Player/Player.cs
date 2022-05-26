@@ -9,11 +9,8 @@ public class Player : MonoBehaviour
     private int CashAmount = 0;
     [SerializeField]
     private bool tutorialEnabled = false;
-
-    //Dictionary to store the stall information
-
-
-    
+    private int cashMultiplier=1;
+    private int Attempts=10;
 
     // Start is called before the first frame update
     void Start()

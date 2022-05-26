@@ -32,12 +32,13 @@ public class StampCard : MonoBehaviour
 
         Debug.LogFormat("Loaded StampCard {0}", JsonUtility.ToJson(savedStampCard));
 
-        markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 90);
-        markStamp(Stamp.Stall.Axe, Stamp.Tier.Advanced, 60);
-        markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 99);
-        markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 70);
-        markStamp(Stamp.Stall.Fishing, Stamp.Tier.Hard, 30);
-
+        //Initialised DB
+        //markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 90);
+        //markStamp(Stamp.Stall.Axe, Stamp.Tier.Advanced, 60);
+        //markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 99);
+        //markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 70);
+        //markStamp(Stamp.Stall.Fishing, Stamp.Tier.Hard, 30);
+        //savedStampCard.Save();
 
         Debug.LogFormat("Loaded StampCard {0}", JsonUtility.ToJson(savedStampCard));
 
@@ -48,6 +49,12 @@ public class StampCard : MonoBehaviour
     {
         stampCard.SetActive(stampCardOpen);
         
+    }
+
+    void OnDestroy()
+    {
+        // save our inventory to disk
+        savedStampCard.Save();
     }
 
     void UpdateStampCardUI()
@@ -233,7 +240,13 @@ public class StampCard : MonoBehaviour
     [System.Serializable]
     private class SaveStampCard
     {
-        private string savePath { get { return Path.Combine(Application.persistentDataPath, "Json/StampCard.json"); } }
+
+        //Path with persistence
+        //private string savePath { get { return Path.Combine(Application.persistentDataPath, "Json/StampCard.json"); } }
+
+        //Current Path
+
+        private string savePath = "./Assets/Scripts/JSON/StampCard.json";
 
         // items currently in the inventory
         public List<Stamp> stamps;
