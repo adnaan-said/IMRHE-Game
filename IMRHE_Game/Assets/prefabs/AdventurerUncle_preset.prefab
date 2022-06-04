@@ -193,6 +193,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventoryOpen: 0
   inventory: {fileID: 0}
+  DescriptionTextBox:
+    TitleField: {fileID: 0}
+    DescriptionField: {fileID: 0}
+  slots: []
 --- !u!114 &3177062007094358109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stampCardOpen: 0
   stampCard: {fileID: 0}
+  StampUIElements: []
 --- !u!114 &3177062007094358105
 MonoBehaviour:
   m_ObjectHideFlags: 0
