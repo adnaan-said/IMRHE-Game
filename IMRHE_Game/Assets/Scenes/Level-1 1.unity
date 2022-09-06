@@ -578,7 +578,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81864
+  m_Name: pb_Mesh94910
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2829,7 +2829,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81558
+  m_Name: pb_Mesh94604
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3065,7 +3065,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348491157}
-  m_LocalRotation: {x: 0.26895785, y: 0.61251825, z: -0.233451, w: 0.7056796}
+  m_LocalRotation: {x: 0.26895648, y: 0.61252236, z: -0.23345256, w: 0.7056761}
   m_LocalPosition: {x: -10.668611, y: 12.629311, z: -12.969778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4322,7 +4322,7 @@ GameObject:
   - component: {fileID: 525505272}
   - component: {fileID: 525505271}
   m_Layer: 5
-  m_Name: Tap to Interact
+  m_Name: Tap to Interact - AR GAMEs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6527,6 +6527,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &674889289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 674889290}
+  - component: {fileID: 674889292}
+  - component: {fileID: 674889291}
+  m_Layer: 0
+  m_Name: StallCollider - LEFT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &674889290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674889289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.7, y: 6.71, z: 5.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1837613540}
+  m_RootOrder: 53
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674889291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674889289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee7ca9c618ead740bc745a229e5415b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 525505269}
+  popUp: Welcome! Tap Below to enter AR Game
+--- !u!65 &674889292
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674889289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7630173, y: 1.898644, z: 2.0271115}
+  m_Center: {x: 0.38150865, y: 0.7274635, z: -0.16860235}
 --- !u!1001 &675526087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8414,6 +8473,65 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9500000, guid: 48517754e0e013546accce0287ea9c2f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48517754e0e013546accce0287ea9c2f, type: 3}
+--- !u!1 &1011380522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1011380523}
+  - component: {fileID: 1011380525}
+  - component: {fileID: 1011380524}
+  m_Layer: 0
+  m_Name: StallCollider - RIGHT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1011380523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011380522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.63, y: 6.71, z: 5.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1837613540}
+  m_RootOrder: 55
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1011380524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011380522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee7ca9c618ead740bc745a229e5415b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 525505269}
+  popUp: Welcome! Tap Below to enter AR Game
+--- !u!65 &1011380525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011380522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7630173, y: 1.898644, z: 2.0271115}
+  m_Center: {x: 0.38150865, y: 0.7274635, z: -0.16860235}
 --- !u!4 &1011503606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3d80b6ccf651fe943a1988f60b388549, type: 3}
@@ -8630,7 +8748,7 @@ GameObject:
   - component: {fileID: 1036961286}
   - component: {fileID: 1036961285}
   m_Layer: 0
-  m_Name: StallCollider
+  m_Name: StallCollider - LEFT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8767,7 +8885,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81098
+  m_Name: pb_Mesh94144
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9276,7 +9394,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81084
+  m_Name: pb_Mesh94130
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10691,6 +10809,10 @@ PrefabInstance:
     - target: {fileID: 3957339916074970052, guid: 2f9f68ca84f77a74597288afb083fc53, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957339916805761808, guid: 2f9f68ca84f77a74597288afb083fc53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3957339916805761820, guid: 2f9f68ca84f77a74597288afb083fc53, type: 3}
       propertyPath: player
@@ -13092,7 +13214,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh80940
+  m_Name: pb_Mesh93986
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13952,7 +14074,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81662
+  m_Name: pb_Mesh94708
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14607,7 +14729,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81816
+  m_Name: pb_Mesh94862
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15418,7 +15540,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81842
+  m_Name: pb_Mesh94888
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15656,6 +15778,10 @@ Transform:
   - {fileID: 634493403}
   - {fileID: 248078304}
   - {fileID: 1036961284}
+  - {fileID: 674889290}
+  - {fileID: 2093130776}
+  - {fileID: 1011380523}
+  - {fileID: 2011573159}
   m_Father: {fileID: 667615655}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15735,7 +15861,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81306
+  m_Name: pb_Mesh94352
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17246,6 +17372,65 @@ Transform:
   m_Father: {fileID: 1837613540}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &2011573158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011573159}
+  - component: {fileID: 2011573161}
+  - component: {fileID: 2011573160}
+  m_Layer: 0
+  m_Name: StallCollider - RIGHT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011573159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011573158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.63, y: 6.71, z: 10.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1837613540}
+  m_RootOrder: 56
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2011573160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011573158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee7ca9c618ead740bc745a229e5415b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 525505269}
+  popUp: Welcome! Tap Below to enter AR Game
+--- !u!65 &2011573161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011573158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7630173, y: 1.898644, z: 2.0271115}
+  m_Center: {x: 0.38150865, y: 0.7274635, z: -0.16860235}
 --- !u!4 &2014532368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7326308086656437384, guid: 81d960fe44e3f6b46bcda7b24988e254, type: 3}
@@ -17368,7 +17553,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035985874}
-  m_LocalRotation: {x: 0.26895785, y: 0.61251825, z: -0.233451, w: 0.7056796}
+  m_LocalRotation: {x: 0.26895648, y: 0.61252236, z: -0.23345256, w: 0.7056761}
   m_LocalPosition: {x: 13.195037, y: 23.839764, z: -27.777006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18587,13 +18772,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4591305709421588, guid: 9bcfd59c0de01934dabc70c78bbaec92, type: 3}
   m_PrefabInstance: {fileID: 2088351519}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2093130775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2093130776}
+  - component: {fileID: 2093130778}
+  - component: {fileID: 2093130777}
+  m_Layer: 0
+  m_Name: StallCollider - LEFT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2093130776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093130775}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.7, y: 6.71, z: 17.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1837613540}
+  m_RootOrder: 54
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2093130777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093130775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee7ca9c618ead740bc745a229e5415b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 525505269}
+  popUp: Welcome! Tap Below to enter AR Game
+--- !u!65 &2093130778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093130775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7630173, y: 1.898644, z: 2.0271115}
+  m_Center: {x: 0.38150865, y: 0.7274635, z: -0.16860235}
 --- !u!43 &2108799750
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81342
+  m_Name: pb_Mesh94388
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
