@@ -9,11 +9,17 @@ public class StampCard : MonoBehaviour
 {
     //private IDictionary<string, int> StallScore = new Dictionary<string, int>();
 
+    
+
     SaveStampCard savedStampCard;
     public bool stampCardOpen=true;
+    public bool isInactive = false;
     public GameObject stampCard;
     Pause pause;
     public List<StampUI> StampUIElements;
+
+    public int passingMark = 80;
+    public int goldenMark = 200;
 
     public void Awake()
     {
@@ -23,9 +29,12 @@ public class StampCard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stampCard.SetActive(true);
-        stampCardOpen = false;
-        pause = GetComponent<Pause>();
+        if (!isInactive)
+        {
+            stampCard.SetActive(true);
+            stampCardOpen = false;
+            pause = GetComponent<Pause>();
+        }
 
         savedStampCard = new SaveStampCard();
         savedStampCard.Load();
@@ -47,8 +56,8 @@ public class StampCard : MonoBehaviour
 
     private void Update()
     {
-        stampCard.SetActive(stampCardOpen);
-        
+        if(!isInactive)
+            stampCard.SetActive(stampCardOpen);    
     }
 
     void OnDestroy()
@@ -87,13 +96,13 @@ public class StampCard : MonoBehaviour
 
                 p.Tier.GetComponent<Text>().text = TierName;
 
-                if (90 < q.Score && q.Score <= 100)
+                if (goldenMark < q.Score)
                 {
                     m_MyColor = Color.yellow;
                     p.Exclamation.GetComponent<Text>().text = "Excellent!";
                     
                 }
-                else if (50 < q.Score)
+                else if (passingMark < q.Score)
                 {
                     m_MyColor = Color.black;
                     p.Exclamation.GetComponent<Text>().text = "Pass!";
@@ -114,7 +123,7 @@ public class StampCard : MonoBehaviour
         );
     }
 
-    void markStamp(Stamp.Stall stall, Stamp.Tier tier, int Score)
+    public void markStamp(Stamp.Stall stall, Stamp.Tier tier, int Score)
     {
         var stamp = savedStampCard.stamps.Find(q => q.stall == stall&&q.tier==tier);
         if (stamp == null)
@@ -125,18 +134,14 @@ public class StampCard : MonoBehaviour
             {
                 Debug.Log("Score is unbeaten");
             }
-            else if (Score > 100)
-            {
-                Debug.LogError("ERR: Invalid Scoring");
-            }
-            else if (90 < Score)
+            else if (goldenMark < Score)
             {
                 stamp.color = Stamp.Color.Gold;
                 stamp.stall = stall;
                 stamp.Score = Score;
               
             }
-            else if (50 < Score)
+            else if (passingMark < Score)
             {
                 stamp.color = Stamp.Color.Black;
                 stamp.stall = stall;
@@ -156,11 +161,7 @@ public class StampCard : MonoBehaviour
     {
         Stamp item = new Stamp();
         bool isMarked = false;
-        if (Score > 100)
-        {
-            Debug.LogError("ERR: Invalid Scoring");
-        }
-        else if (90 < Score)
+        if (goldenMark < Score)
         {
             item = new Stamp()
             {
@@ -171,7 +172,7 @@ public class StampCard : MonoBehaviour
             };
             isMarked = true;
         }
-        else if (50 < Score)
+        else if (passingMark < Score)
         {
             item = new Stamp()
             {
@@ -199,6 +200,17 @@ public class StampCard : MonoBehaviour
 
     }
 
+    public int getTierData(Stamp.Stall stall)
+    {
+        var stamp = savedStampCard.stamps.Find(q => q.stall == stall);
+        if (stamp.color == Stamp.Color.Red)
+        {
+            return stamp.tier.GetHashCode();
+        }
+        return stamp.tier.GetHashCode() + 1;
+        
+    }
+
     public void toggleStampCard()
     {
         this.stampCardOpen = !this.stampCardOpen;
@@ -213,6 +225,16 @@ public class StampCard : MonoBehaviour
         if (stampCardOpen)
             UpdateStampCardUI();
 
+    }
+
+    public void Initialise()
+    {
+        savedStampCard = new SaveStampCard();
+
+        markStamp(Stamp.Stall.Clowns, Stamp.Tier.Basic, 0);
+        markStamp(Stamp.Stall.Axe, Stamp.Tier.Basic, 0);
+        markStamp(Stamp.Stall.Fishing, Stamp.Tier.Basic, 0);
+        savedStampCard.Save();
     }
 
     [System.Serializable]

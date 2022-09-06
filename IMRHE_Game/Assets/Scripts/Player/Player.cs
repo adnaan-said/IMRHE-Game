@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +16,25 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!PlayerPrefs.HasKey("Cash"))
+        {
+            PlayerPrefs.SetInt("Cash", 0);
+            LoadCash();
+        }
+        else
+        {
+            LoadCash();
+        }
 
+        if (!PlayerPrefs.HasKey("Cash_Multiplier"))
+        {
+            PlayerPrefs.SetInt("Cash_Multiplier", 1);
+            LoadCashMult();
+        }
+        else
+        {
+            LoadCashMult();
+        }
     }
 
     // Update is called once per frame
@@ -24,18 +43,50 @@ public class Player : MonoBehaviour
 
     }
 
-
+    public void LoadCash()
+    {
+        CashAmount = PlayerPrefs.GetInt("Cash");
+        Debug.Log(CashAmount);
+    }
+    public void LoadCashMult()
+    {
+        cashMultiplier = PlayerPrefs.GetInt("Cash_Multiplier");
+    }
+    public void LoadAll()
+    {
+        LoadCash();
+        LoadCashMult();
+    }
 
     public double getCash()
     {
         return CashAmount;
     }
-    public void addCash(int deposit)
+    public double getCashMultiplier()
     {
-        CashAmount+=deposit;
+        return CashAmount;
     }
-    public void debitCash(int Debit)
+
+    public void addMultiplier(int increment)
     {
-        CashAmount += Debit;
+        cashMultiplier += increment;
+        PlayerPrefs.SetInt("Cash_Multiplier", cashMultiplier);
+    }
+
+    public bool debitCash(int Debit)
+    {
+        if ((CashAmount - Debit) < 0)
+        { CashAmount -= Debit; 
+            PlayerPrefs.SetInt("Cash", CashAmount);
+            Debug.Log(CashAmount);
+        }
+        else
+            return false;
+        return true;
+    }
+
+    public void GoBackToLevel()
+    {
+        SceneManager.LoadScene("Level-1 1");
     }
 }

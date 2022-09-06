@@ -10,17 +10,22 @@ public class Inventory : MonoBehaviour
 
     // Start is called before the first frame update
     SaveInventory savedInventory;
-    public bool InventoryOpen=true;
+    public bool isInactive = false;
+    public bool InventoryOpen=false;
     public GameObject inventory;
     public Description DescriptionTextBox;
     public List<InvSlot> slots;
     private Pause pause;
 
+    
     void Start()
     {
-        inventory.SetActive(true);
-        pause = GetComponent<Pause>();
-        InventoryOpen = false;
+        if (!isInactive)
+        {
+            inventory.SetActive(true);
+            pause = GetComponent<Pause>();
+            InventoryOpen = false;
+        }
 
         savedInventory = new SaveInventory();
         savedInventory.Load();
@@ -40,10 +45,13 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pause.PauseMenu.activeSelf)
-            if (Input.GetKeyDown(KeyCode.I))
-                InventoryOpen = !InventoryOpen;
-        inventory.SetActive(InventoryOpen);
+        if (!isInactive)
+        {
+            if (pause.PauseMenu.activeSelf)
+                if (Input.GetKeyDown(KeyCode.I))
+                    InventoryOpen = !InventoryOpen;
+            inventory.SetActive(InventoryOpen);
+        }
     }
 
     private void OnDestroy()
@@ -53,58 +61,64 @@ public class Inventory : MonoBehaviour
 
     public void ActivateInventory()
     {
-        InventoryOpen = !InventoryOpen;
-        if (InventoryOpen)
+        if (!isInactive)
         {
-            UpdateInventoryUI();
+            InventoryOpen = !InventoryOpen;
+            if (InventoryOpen)
+            {
+                UpdateInventoryUI();
+            }
         }
     }
 
     void UpdateInventoryUI()
     {
-        Debug.Log(10);
-
-        //Debug.Log(savedStampCard);
-
-        List<Item> stamps = savedInventory.items;
-
-        savedInventory.items.ForEach(q =>
+        if (!isInactive)
         {
+            Debug.Log(10);
+
+            //Debug.Log(savedStampCard);
+
+            List<Item> stamps = savedInventory.items;
+
+            savedInventory.items.ForEach(q =>
+            {
             //Debug.Log(100);
             slots.ForEach(p =>
-            {
-
-            string itemName = Enum.GetName(typeof(Item.Type), q.type);
-            if (p.Name == itemName)
-            {
-                if (q.amount > 0)
                 {
-                    Debug.Log(100);
-                    p.Holder.SetActive(true);
-                    p.count.GetComponent<Text>().text = q.amount.ToString();
-                    p.ImageSlot.GetComponent<Image>().sprite = p.Sprite;
-                    p.ImageSlot.GetComponent<Image>().preserveAspect = true;
+
+                    string itemName = Enum.GetName(typeof(Item.Type), q.type);
+                    if (p.Name == itemName)
+                    {
+                        if (q.amount > 0)
+                        {
+                            Debug.Log(100);
+                            p.Holder.SetActive(true);
+                            p.count.GetComponent<Text>().text = q.amount.ToString();
+                            p.ImageSlot.GetComponent<Image>().sprite = p.Sprite;
+                            p.ImageSlot.GetComponent<Image>().preserveAspect = true;
 
                         //p.DescriptionButton.onClick.AddListener(TaskOnClick);
                         p.DescriptionButton.onClick.AddListener(
-                            () =>
-                            {
-                                DescriptionTextBox.TitleField.text = q.type.ToString();
-                                DescriptionTextBox.DescriptionField.text = q.Description;
-                                Debug.Log("Haawwwyaaaaa");
-                            });
-                    }
-                    else
-                    {
-                        p.Holder.SetActive(false);
-                    }
+                                () =>
+                                {
+                                    DescriptionTextBox.TitleField.text = q.type.ToString();
+                                    DescriptionTextBox.DescriptionField.text = q.Description;
+                                    Debug.Log("Haawwwyaaaaa");
+                                });
+                        }
+                        else
+                        {
+                            p.Holder.SetActive(false);
+                        }
                     //Debug.Log(stallName + " " + TierName);
                     //Debug.Log(1000);
                 }
+                }
+                );
             }
             );
         }
-        );
     }
 
     void useItem(Item.Type P_type, int P_amount)

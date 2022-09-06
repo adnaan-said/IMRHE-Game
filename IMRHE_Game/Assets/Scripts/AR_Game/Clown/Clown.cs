@@ -27,7 +27,12 @@ public class Clown : MonoBehaviour
             return pointValue;
         }
         else
-            return -pointValue;
+            return -pointValue/2;
+    }
+
+    public void setPoints(int points)
+    {
+        pointValue = points;
     }
 
     public void setIsActive(bool state)
@@ -38,10 +43,13 @@ public class Clown : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
+            if (isActive)
+            {
+                main_selector.disableClown(this.gameObject);
+                main_selector.activateClown();
+            }
             Destroy(other.gameObject);
-            main_selector.disableClown(other.gameObject);
             main_selector.AddPoints(getPoints());
-            main_selector.activateClown();
         }
     }
 }

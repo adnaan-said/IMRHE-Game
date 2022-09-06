@@ -11,7 +11,7 @@ public class StampCardFunction : MonoBehaviour
     private string labelText;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Debug.Log(0);
         Debug.Log(player.tag);
@@ -72,7 +72,7 @@ public class StampCardFunction : MonoBehaviour
 
     public void ToggleStampCard()
     {
-        Debug.Log(1);
+        Debug.Log(stampCard);
         stampCard.toggleStampCard();
     }
 

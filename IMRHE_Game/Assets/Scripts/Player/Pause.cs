@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -16,10 +17,15 @@ public class Pause : MonoBehaviour
         PauseEnabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+   public void BackToMenu()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        SceneManager.LoadScene("Start-Screen 1");
+     
+    }
+
+    public void EnableMenu()
+    {
+        if (PauseMenu == true)
         {
             PauseEnabled = !PauseEnabled;
             StopMotion();

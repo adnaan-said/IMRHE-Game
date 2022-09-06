@@ -109,4 +109,9 @@ public class ProjectileShooter : MonoBehaviour
         allowInvoke = true;
     }
 
+    public int getBulletUsed()
+    {
+        return AmmoSpent;
+    }
+
 }
